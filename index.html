@@ -29,23 +29,23 @@
     </div>
     
     <div id="main" style="clear: left; text-align: center;">
-    <h1 id="typingE"></h1>
+    <h1 id="demo"></h1>
       <p>Stop trying to get keys for the most popular free exploits. With RoSploit, you dont even need to get a key. In this day you can download
       RoSploit and try it!</p>
       <a href="rosploit.zip"><button>Download now!</button></a>
     </div>
     <script>
       var i = 0;
-      var txt = 'RoSploit'; /* The text */
-      var speed = 50; /* The speed/duration of the effect in milliseconds */
+var txt = 'Lorem ipsum dummy text blabla.';
+var speed = 50;
 
-      function typeWriter() {
-        if (i < txt.length) {
-          document.getElementById("typingE").innerHTML += txt.charAt(i);
-          i++;
-          setTimeout(typeWriter, speed);
-       }
-      }
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
     </script>
     
     <footer>Official Icon from <a href="boblox.ico">Roblox</a>.</footer>
