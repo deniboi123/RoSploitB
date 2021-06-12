@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    
+    <title>RoSploit | WRD</title>
+    
+    <style media="screen">
+      body {
+        font-family: 'Quicksand', sans-serif;
+        background: url('https://jooinn.com/images1280_/german-mountains.jpg') no-repeat;
+      }
+      
+      .main {
+       text-align: center;
+      }
+      
+      .nav {
+       background-color: gray;
+       width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <h4 style="float: left;">RoSploit</h4>
+      <a href="rosploit.zip" style="float: left;"><H4>Download</H4></a>
+    </div>
+    
+    <div id="main" style="clear: left;">
+    <h1 id="typingE"></h1>
+      <p>Stop trying to get keys for the most popular free exploits. With RoSploit, you dont even need to get a key. In this day you can download
+      RoSploit and try it!</p>
+      <a href="rosploit.zip"><button>Download now!</button></a>
+    </div>
+    <script>
+      var i = 0;
+      var txt = 'RoSploit'; /* The text */
+      var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typingE").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+       }
+      }
+    </script>
+    
+    <footer>Montains image from <a href="https://jooinn.com/">Jooin</a>.</footer>
+  </body>
+</html>
