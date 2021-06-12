@@ -3,7 +3,7 @@
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>RoSploit | WRD</title>
     
     <style media="screen">
@@ -29,22 +29,66 @@
     </div>
     
     <div id="main" style="clear: left; text-align: center;">
-    <h1 id="demo"></h1>
+    <h1 id="sentence" class="sentence"></h1>
+    <span id="feature-text"></span>
+    <span class="input-cursor"></span>
       <p>Stop trying to get keys for the most popular free exploits. With RoSploit, you dont even need to get a key. In this day you can download
       RoSploit and try it!</p>
       <a href="rosploit.zip"><button>Download now!</button></a>
     </div>
     <script>
-      var i = 0;
-var txt = 'Lorem ipsum dummy text blabla.';
-var speed = 50;
+const carouselText = [
+  {text: "RoSploit", color: "red"},
+  {text: "Keyless", color: "orange"},
+  {text: "Free", color: "yellow"},
+  {text: "Cool", color: "white"}
+]
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+$( document ).ready(async function() {
+  carousel(carouselText, "#feature-text")
+});
+
+async function typeSentence(sentence, eleRef, delay = 100) {
+  const letters = sentence.split("");
+  let i = 0;
+  while(i < letters.length) {
+    await waitForMs(delay);
+    $(eleRef).append(letters[i]);
+    i++
   }
+  return;
+}
+
+async function deleteSentence(eleRef) {
+  const sentence = $(eleRef).html();
+  const letters = sentence.split("");
+  let i = 0;
+  while(letters.length > 0) {
+    await waitForMs(100);
+    letters.pop();
+    $(eleRef).html(letters.join(""));
+  }
+}
+
+async function carousel(carouselList, eleRef) {
+    var i = 0;
+    while(true) {
+      updateFontColor(eleRef, carouselList[i].color)
+      await typeSentence(carouselList[i].text, eleRef);
+      await waitForMs(1500);
+      await deleteSentence(eleRef);
+      await waitForMs(500);
+      i++
+      if(i >= carouselList.length) {i = 0;}
+    }
+}
+
+function updateFontColor(eleRef, color) {
+  $(eleRef).css('color', color);
+}
+
+function waitForMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
     </script>
     
