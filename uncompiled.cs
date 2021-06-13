@@ -167,5 +167,10 @@ namespace RoSploit
         {
             
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Text = "";
+        }
     }
 }
