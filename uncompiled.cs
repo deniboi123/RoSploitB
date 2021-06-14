@@ -140,12 +140,25 @@ namespace RoSploit
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            Process[] pname = Process.GetProcessesByName("RobloxPlayerBeta");
+            if (pname.Length == 0)
+            {
+                Form2 myNewForm = new Form2();
+
+                myNewForm.Show();
+            }
+
+           
             api.LaunchExploit();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            api.SendLuaScript(fastColoredTextBox1.Text);
+            if (api.isAPIAttached())
+            {
+                api.SendLuaScript(fastColoredTextBox1.Text);
+            } else { return; }
+            
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -171,6 +184,11 @@ namespace RoSploit
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
             fastColoredTextBox1.Text = "";
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://web.roblox.com/");
         }
     }
 }
